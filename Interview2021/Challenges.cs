@@ -1,6 +1,13 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Xml;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using static System.Net.WebRequestMethods;
 
 namespace Interview2021
 {
@@ -25,6 +32,13 @@ namespace Interview2021
 
             result.Should().Be("4a3b2c1a");
         }
+
+        [TestMethod]
+        public void CallApi()
+        {
+            var result = Challenges.CallApi("apple");
+            
+        }
     }
 
     public static class Challenges
@@ -37,6 +51,15 @@ namespace Interview2021
         public static int[] GetMode(params int[] numbers)
         {
             throw new NotImplementedException();
+        }
+
+        public static object CallApi(string word)
+        {
+
+
+            //https://dictionaryapi.dev/
+            // for xml http://api.nbp.pl/api/cenyzlota/last/{topCount}
+            return null;
         }
     }
 }
