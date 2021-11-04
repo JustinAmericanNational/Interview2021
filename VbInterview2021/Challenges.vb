@@ -1,22 +1,19 @@
-﻿Imports System.Net.Http
-Imports FluentAssertions
+﻿Imports FluentAssertions
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
-Imports Newtonsoft.Json
-Imports Newtonsoft.Json.Linq
 
 <TestClass>
 Public Class ChallengesShould
     <TestMethod>
     Public Sub return_mode()
-        Dim results = Challenges.GetMode(1, 2, 3, 3, 4, 4, 5)
+        Dim results = GetMode(1, 2, 3, 3, 4, 4, 5)
         results.Length.Should().Be(2)
         results(0).Should().Be(3)
         results(1).Should().Be(4)
     End Sub
 
     <TestMethod>
-    Public Sub return_encoded_string()
-        Dim result = Challenges.GetEncodedString("aaaabbbcca")
+    Public Sub return_letter_count()
+        Dim result = GetLetterCount("aaaabbbcca")
         result.Should().Be("4a3b2c1a")
     End Sub
 
@@ -28,18 +25,31 @@ Public Class ChallengesShould
 End Class
 
 Module Challenges
-    Function GetEncodedString(ByVal input As String) As String
+    ''' <summary>
+    ''' Count the number of times a letter occurs.
+    ''' </summary>
+    ''' <param name="input"></param>
+    ''' <returns>Letter Count.</returns>
+    Function GetLetterCount(ByVal input As String) As String
         Throw New NotImplementedException()
     End Function
-
+    ''' <summary>
+    ''' The number which appears most often in a set of numbers.
+    ''' Example: in {6, 3, 9, 6, 6, 5, 9, 3} the Mode is 6 (it occurs most often).
+    ''' </summary>
+    ''' <param name="numbers"></param>
+    ''' <returns>The mode.</returns>
     Function GetMode(ParamArray numbers As Integer()) As Integer()
         Throw New NotImplementedException()
     End Function
-
+    ''' <summary>
+    ''' https://dictionaryapi.dev/ 
+    ''' for xml http://api.nbp.pl/api/cenyzlota/last/{topCount}
+    ''' Call one of the two APIs and cast the response to a strongly typed object 
+    ''' </summary>
+    ''' <param name="word"></param>
+    ''' <returns>Strongly typed object from api response.</returns>
     Function CallApi(ByVal word As String) As Object
-        'https://dictionaryapi.dev/ 
-        'for xml http://api.nbp.pl/api/cenyzlota/last/{topCount}
-
         Return Nothing
     End Function
 End Module
