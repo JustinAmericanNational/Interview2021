@@ -11,10 +11,14 @@ Public Class ChallengesShould
         results(1).Should().Be(4)
     End Sub
 
+  
     <TestMethod>
     Public Sub return_letter_count()
-        Dim result = GetLetterCount("aaaabbbcca")
-        result.Should().Be("4a3b2c1a")
+        Dim resultOne = GetLetterCount("aaaabbbcca")
+        resultOne.Should().Be("4a3b2c1a")
+
+        Dim resultTwo = GetLetterCount("ddddddddddd")
+        resultTwo.Should().Be("11d")
     End Sub
 
     <TestMethod>
